@@ -1,5 +1,5 @@
 import http from '../../services/http';
-const ip = 'http://192.168.43.88:8000/';
+import {ip} from '../../services/api';
 
 export const loginUser = (dataSubmit) => {
   return {
@@ -8,6 +8,7 @@ export const loginUser = (dataSubmit) => {
   };
 };
 export const registerUser = (dataSubmit) => {
+  console.log('registerUser', JSON.stringify(dataSubmit));
   return {
     type: 'REGISTER',
     payload: http().post(`${ip}auth/register`, dataSubmit),
